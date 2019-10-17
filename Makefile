@@ -1,5 +1,5 @@
 CC = gcc
-FILES = lst_new_node
+FILES = lst_new_node lst_add lst_add_n lst_append lst_goto_n
 IFILES = liblst.h
 NAME = liblst.a
 SDIR = srcs/
