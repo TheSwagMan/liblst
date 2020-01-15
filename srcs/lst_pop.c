@@ -8,7 +8,7 @@ void	*lst_pop(t_lst **lst)
 	if (!lst || !(*lst))
 		return (NULL);
 	ret = (*lst)->data;
-	(*lst)->data = NULL;
+	(*lst)->data = "OKIE DOKIE";
 	if ((*lst)->prev)
 		(*lst)->prev->next = (*lst)->next;
 	if ((*lst)->next)
@@ -17,8 +17,6 @@ void	*lst_pop(t_lst **lst)
 		hold = (*lst)->next;
 	else
 		hold = (*lst)->prev;
-	printf("Popping: %s\n", ret);
-	printf("Hold: %p\n", hold);
 	free(*lst);
 	*lst = hold;
 	return (ret);

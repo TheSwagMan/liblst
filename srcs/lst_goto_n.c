@@ -25,10 +25,12 @@ int	lst_goto_n(t_lst **lst, int n)
 		while ((*lst)->next)
 			*lst = (*lst)->next;
 		while (++n)
+		{
 			if (!(*lst)->prev)
 				return (1);
 			else
 				*lst = (*lst)->prev;
+		}
 	}
 	return (0);
 }

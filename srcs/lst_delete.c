@@ -6,5 +6,8 @@ void	lst_delete(t_lst **lst, void (*f)(void *d))
 		return ;
 	lst_goto_n(lst, 0);
 	while (*lst)
-		f(lst_pop(lst));
+		if (f)
+			f(lst_pop(lst));
+		else
+			lst_pop(lst);
 }

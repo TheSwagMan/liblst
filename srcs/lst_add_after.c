@@ -3,6 +3,8 @@
 int	lst_add_after(t_lst **lst, void *data)
 {
 	t_lst	*t;
+	t_lst	*current;
+	t_lst	*next;
 
 	if (!lst)
 		return (0);
@@ -10,13 +12,15 @@ int	lst_add_after(t_lst **lst, void *data)
 		return (lst_add(lst, data));
 	else
 	{
-		t = (*lst)->next;
-		if (!((*lst)->next = lst_new_node(data)))
+		current = *lst;
+		next = (*lst)->next;
+		if (!(t = lst_new_node(data)))
 			return (0);
-		if (t)
-			t->prev = *lst;
-		(*lst)->next->next = t;
-		(*lst)->next->prev = *lst;
+		t->next = next;
+		t->prev = current;
+		current->next = t;
+		if (next)
+			next->prev = t;
 	}
 	return (1);
 }
