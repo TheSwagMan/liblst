@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpotier <tpotier@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/18 01:54:34 by tpotier           #+#    #+#             */
+/*   Updated: 2020/01/18 01:57:39 by tpotier          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "liblst.h"
 #include <stdio.h>
 
-void disp_lst(t_lst *lst)
+void	disp_lst(t_lst *lst)
 {
 	lst_goto_n(&lst, 0);
 	while (lst)
@@ -12,7 +24,7 @@ void disp_lst(t_lst *lst)
 	printf("\n");
 }
 
-int main(void)
+int		main(void)
 {
 	t_lst	*lst;
 
@@ -28,4 +40,3 @@ int main(void)
 	lst_delete(&lst, NULL);
 	return (0);
 }
-
