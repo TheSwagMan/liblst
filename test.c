@@ -23,6 +23,7 @@ int main(void)
 		return (-1);
 	disp_lst(lst);
 	lst_add_n(&lst, "My", 1);
+	lst_add_n(&lst, "Ok,", 0);
 	disp_lst(lst);
 	lst_delete(&lst, NULL);
 	return (0);
