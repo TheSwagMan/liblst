@@ -1,6 +1,6 @@
 CC = gcc
 FILES =	lst_new_node lst_add lst_add_n lst_append lst_goto_n lst_add_after \
-		lst_pop lst_pop_n lst_remove lst_remove_n lst_delete
+		lst_pop lst_pop_n lst_remove lst_remove_n lst_delete lst_insert_sorted
 IFILES = liblst.h
 NAME = liblst.a
 SDIR = srcs/

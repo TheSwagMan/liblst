@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_add.c                                          :+:      :+:    :+:   */
+/*   lst_insert_sorted.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotier <tpotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/18 01:54:44 by tpotier           #+#    #+#             */
-/*   Updated: 2020/01/28 12:08:50 by tpotier          ###   ########.fr       */
+/*   Created: 2020/01/28 11:04:14 by tpotier           #+#    #+#             */
+/*   Updated: 2020/01/28 12:17:54 by tpotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblst.h"
 
-int	lst_add(t_lst **lst, void *data)
+int	lst_insert_sorted(t_lst **lst, void *d, int (*f)(void *a, void *b))
 {
-	t_lst	*t;
-
 	if (!lst)
 		return (0);
-	if (!(*lst))
+	if (*lst)
 	{
-		if (!(*lst = lst_new_node(data)))
-			return (0);
+		lst_goto_n(lst, 0);
+		while ((*lst)->next)
+		{
+			if (f((*lst)->data, d))
+				return (lst_add(lst, d));
+			*lst = (*lst)->next;
+		}
+		if (f((*lst)->data, d))
+			return (lst_add(lst, d));
+		return (lst_add_after(lst, d));
 	}
 	else
-	{
-		t = *lst;
-		if (!(*lst = lst_new_node(data)))
-			return (0);
-		if (t->prev)
-			t->prev->next = *lst;
-		(*lst)->prev = t->prev;
-		(*lst)->next = t;
-		t->prev = *lst;
-	}
-	return (1);
+		return (lst_add(lst, d));
 }

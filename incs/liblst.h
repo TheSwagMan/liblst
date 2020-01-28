@@ -6,7 +6,7 @@
 /*   By: tpotier <tpotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/18 01:55:50 by tpotier           #+#    #+#             */
-/*   Updated: 2020/01/18 01:55:52 by tpotier          ###   ########.fr       */
+/*   Updated: 2020/01/28 11:56:20 by tpotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void				*lst_pop_n(t_lst **lst, int n);
 void				lst_remove(t_lst **lst, void (*f)(void *d));
 void				lst_remove_n(t_lst **lst, void (*f)(void *d), int n);
 void				lst_delete(t_lst **lst, void (*f)(void *d));
+int					lst_insert_sorted(t_lst **lst, void *d, \
+		int (*f)(void *a, void *b));
 
 #endif
