@@ -6,7 +6,7 @@
 /*   By: tpotier <tpotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/18 01:54:34 by tpotier           #+#    #+#             */
-/*   Updated: 2020/01/18 01:57:39 by tpotier          ###   ########.fr       */
+/*   Updated: 2020/01/28 09:21:01 by tpotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,9 @@ int		main(void)
 	lst_add_n(&lst, "Ok,", 0);
 	disp_lst(lst);
 	lst_delete(&lst, NULL);
+	lst_append(&lst, "POP");
+	printf("%s\n", lst_pop(&lst));
+	printf("%p\n", lst);
+
 	return (0);
 }
