@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_goto_n.c                                       :+:      :+:    :+:   */
+/*   lst_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotier <tpotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/18 01:55:15 by tpotier           #+#    #+#             */
-/*   Updated: 2020/02/25 17:35:52 by tpotier          ###   ########.fr       */
+/*   Created: 2020/02/25 17:35:24 by tpotier           #+#    #+#             */
+/*   Updated: 2020/02/25 17:39:57 by tpotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "liblst.h"
 
-int	lst_goto_n(t_lst **lst, int n)
+int	lst_size(t_lst *lst)
 {
+	int	n;
+
+	n = 0;
 	if (!lst)
 		return (-1);
-	if (!(*lst))
-		return (1);
-	if (n >= 0)
+	lst_goto_n(&lst, 0);
+	while (lst)
 	{
-		while ((*lst)->prev)
-			*lst = (*lst)->prev;
-		while (n--)
-			if (!(*lst)->next && n)
-				return (1);
-			else
-				*lst = (*lst)->next;
+		n++;
+		lst = lst->next;
 	}
-	else
-	{
-		while ((*lst)->next)
-			*lst = (*lst)->next;
-		while (++n)
-			if (!(*lst)->prev)
-				return (1);
-			else
-				*lst = (*lst)->prev;
-	}
-	return (0);
+	return (n);
 }
