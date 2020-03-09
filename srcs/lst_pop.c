@@ -6,7 +6,7 @@
 /*   By: tpotier <tpotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/18 01:55:24 by tpotier           #+#    #+#             */
-/*   Updated: 2020/01/18 01:55:25 by tpotier          ###   ########.fr       */
+/*   Updated: 2020/03/09 15:42:17 by tpotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	*lst_pop(t_lst **lst)
 	if (!lst || !(*lst))
 		return (NULL);
 	ret = (*lst)->data;
-	(*lst)->data = "OKIE DOKIE";
 	if ((*lst)->prev)
 		(*lst)->prev->next = (*lst)->next;
 	if ((*lst)->next)
